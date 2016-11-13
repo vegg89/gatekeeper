@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="page-header">
+    <h1>Entries for <%= @badge_number %> <small><%= DateTime.now.strftime("%B %Y") %></small></h1>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="text-center">Day</th>
+        <th class="text-center">Check-in hour</th>
+        <th class="text-center">Check-out hour</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @period_entries.each do |entry| %>
+        <tr>
+          <th scope="row" class="text-center"><%= entry[:day] %></th>
+          <% if entry[:record].nil? %>
+            <td colspan="2" class="text-center">Record not found</td>
+          <% else %>
+            <td class="text-center"><%= entry[:record].check_in.strftime "%H:%M" %></td>
+            <% if entry[:record].check_out.nil? %>
+              <td class="text-center">--</td>
+            <% else %>
+              <td class="text-center"><%= entry[:record].check_out.strftime "%H:%M" %></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
