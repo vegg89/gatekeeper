@@ -16,6 +16,13 @@ class Api::V1::EntriesController < ApplicationController
   end
 
   def out
-    # TODO: Implement Out action
+    entry = Entry.not_checked_out.by_badge_number(params[:badge_number])
+      .by_day(DateTime.parse(params[:datetime])).first
+    if entry
+      entry.update({check_out: params[:datetime]})
+      render json: entry, status: 200
+    else
+      render json: "", status: 404
+    end
   end
 end
