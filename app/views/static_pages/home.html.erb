@@ -1,4 +1,27 @@
 <div class="jumbotron">
   <h1>Textile Co.</h1>
-  <p>...</p>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Employee working hours</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_tag search_path do %>
+          <div class="form-group">
+            <p>Please enter your badge number to continue:</p>
+            <%= label_tag 'badge_number', nil, class: 'sr-only' %>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
+              </div>
+              <%= text_field_tag 'badge_number', nil, class: 'form-control', placeholder: 'Badge number'%>
+            </div>
+          </div>
+          <%= submit_tag 'Search', class: 'btn btn-primary btn-lg btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

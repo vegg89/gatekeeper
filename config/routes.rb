@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   get 'static_pages/home', to: 'static_pages#home'
 
   scope '/entries' do
-    get '/search', to: 'entries#search'
+    post '/search', to: 'entries#search'
   end
 end
