@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   scope '/entries' do
     post '/search', to: 'entries#search'
     get '/absences', to: 'entries#absences'
+    get '/delays', to: 'entries#delays'
   end
 end
