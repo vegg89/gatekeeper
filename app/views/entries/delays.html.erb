@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="page-header">
+    <h1>Delays <small><%= DateTime.now.strftime("%B %Y") %></small></h1>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Check in</th>
+        <th>Check out</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @delays.each do |delay| %>
+        <tr>
+          <th scope="row" class="info" colspan="3">
+            <%= delay[:badge_number] %>
+          </th>
+        </tr>
+        <% delay[:period_entries].each do |entrie| %>
+          <tr>
+            <% if entrie[:record] %>
+              <th scope="row"><%= entrie[:day] %></th>
+              <td class="text-center"><%= entrie[:record].check_in %></td>
+              <td class="text-center"><%= entrie[:record].check_out %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
