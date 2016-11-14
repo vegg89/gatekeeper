@@ -1,11 +1,46 @@
 <div class="jumbotron">
   <h1>Textile Co.</h1>
 </div>
+<div class="container col-md-6">
+  <div class="well well-sm">
+    <p>
+      Instructions:
+    </p>
+    <p>
+      Use the form below to review the entries report by badge number.
+      <br/>
+      * Employees can review their report 3 days before the payday.
+      <br/>
+      * HR admins can review the reports anytime.
+    </p>
+    <p>
+      Only HR Admins can access Delays and Absences reports.
+    </p>
+    <p>
+      If you want to add more entries please refer to the <%= link_to 'README', 'https://github.com/vegg89/gatekeeper/blob/master/README.md' %>.
+  </div>
+</div>
+<div class="container col-md-6">
+  <div class="well well-sm">
+    <p>
+      Assumptions:
+    </p>
+    <p>
+      * Reports only show entries of the current month(current period).
+      <br/>
+      * Payday is the last day of each month.
+      <br/>
+      * There is no time tolerance.
+      <br/>
+      * There's only one check-in and check-out per day.
+    </p>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Employee working hours</h3>
+        <h3 class="panel-title">Employee report</h3>
       </div>
       <div class="panel-body">
         <%= form_tag search_path do %>
@@ -18,6 +53,7 @@
               </div>
               <%= text_field_tag 'badge_number', nil, class: 'form-control', placeholder: 'Badge number'%>
             </div>
+            <small>Test badge: 1234567890</small>
           </div>
           <%= submit_tag 'Search', class: 'btn btn-primary btn-lg btn-block' %>
         <% end %>
