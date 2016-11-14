@@ -19,7 +19,7 @@
         <% absence[:period_entries].each do |entrie| %>
           <tr>
             <% if entrie[:record].nil? %>
-              <th scope="row"><%= entrie[:day] %></th>
+              <th scope="row"><%= entrie[:day].strftime "%d" %></th>
               <td class="text-center">Record not found</td>
             <% end %>
           </tr>
