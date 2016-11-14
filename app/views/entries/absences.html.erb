@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="page-header">
+    <h1>Absences <small><%= DateTime.now.strftime("%B %Y") %></small></h1>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @absences.each do |absence| %>
+        <tr>
+          <th scope="row" class="info" colspan="2">
+            <%= absence[:badge_number] %>
+          </th>
+        </tr>
+        <% absence[:period_entries].each do |entrie| %>
+          <tr>
+            <% if entrie[:record].nil? %>
+              <th scope="row"><%= entrie[:day].strftime "%d" %></th>
+              <td class="text-center">Record not found</td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
