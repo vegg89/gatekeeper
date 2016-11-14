@@ -13,7 +13,7 @@
     <tbody>
       <% @period_entries.each do |entry| %>
         <tr>
-          <th scope="row" class="text-center"><%= entry[:day] %></th>
+          <th scope="row" class="text-center"><%= entry[:day].strftime "%d" %></th>
           <% if entry[:record].nil? %>
             <td colspan="2" class="text-center">Record not found</td>
           <% else %>

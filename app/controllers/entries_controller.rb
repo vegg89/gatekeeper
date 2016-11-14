@@ -29,19 +29,24 @@ class EntriesController < ApplicationController
   end
 
   def get_period_entries(badge_number)
-    current_date = DateTime.now
-    (1..Time.days_in_month(current_date.month, current_date.year)).map do |day|
-      date = DateTime.new(current_date.year, current_date.month, day)
-      { day: day, record: Entry.by_badge_number(badge_number).by_day(date).first }
+    working_days.map do |day|
+      { day: day, record: Entry.by_badge_number(badge_number).by_day(day).first }
     end
   end
 
   def get_late_entries(badge_number)
-    current_date = DateTime.now
-    (1..Time.days_in_month(current_date.month, current_date.year)).map do |day|
-      date = DateTime.new(current_date.year, current_date.month, day)
-      { day: day, record: Entry.by_badge_number(badge_number).by_day(date).late.first }
+    working_days.map do |day|
+      { day: day, record: Entry.by_badge_number(badge_number).by_day(day).late.first }
     end
+  end
+
+  def working_days
+    current_date = DateTime.now
+    month_days =
+      (1..Time.days_in_month(current_date.month, current_date.year)).select do |day|
+        DateTime.new(current_date.year, current_date.month, day).on_weekday?
+      end
+    month_days.map { |day| DateTime.new(current_date.year, current_date.month, day)  }
   end
 
   def logged_in_user
