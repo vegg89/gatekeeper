@@ -8,13 +8,21 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Textile Co.</a>
+        <%= link_to 'Textile Co.', root_path, class: 'navbar-brand' %>
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="#">Delays report</a></li>
-          <li><a href="#">Absence report</a></li>
+          <li><%= link_to 'Employee report', root_path %></li>
+          <li><%= link_to 'Delays report', delays_path %></li>
+          <li><%= link_to 'Absences report', absences_path %></li>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Login here", login_path %></li>
+        <% end %>
+      </ul>
       </div>
     </div>
   </div>

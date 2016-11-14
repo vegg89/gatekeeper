@@ -16,4 +16,8 @@ Rails.application.routes.draw do
     get '/absences', to: 'entries#absences'
     get '/delays', to: 'entries#delays'
   end
+
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
 end

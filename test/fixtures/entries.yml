@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  badge_number: MyString
+  check_in: 2016-11-14
+  check_out: 2016-11-14
+
+two:
+  badge_number: MyString
+  check_in: 2016-11-14
+  check_out: 2016-11-14
