@@ -1,5 +1,5 @@
 User.create(
-  { name: 'HR Admin', email: 'admin@textile.com', password: '12345678', password_confirmation: '12345678' }
+  { name: 'HR Admin', email: 'admin@textilco.com', password: '12345678', password_confirmation: '12345678' }
 )
 
 Entry.create([

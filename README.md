@@ -27,7 +27,7 @@ Textile.Co bought a punch card machine that can send a HTTP’s JSON POST payloa
 ### Test data
 The seed contains the following test data:
 * An Admin user
-  * email: admin@textil.com
+  * email: admin@textilco.com
   * password: 12345678
 * Some entries for badge 1234567890 for November period
 
